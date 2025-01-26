@@ -17,7 +17,7 @@ def keep_alive():
 keep_alive()
 BOT_TOKEN = os.environ['discord_bot_token']  # 
 YOUR_USER_ID = os.environ['user_id'] 
-CHANNEL_NAME = "〔💬〕main-chat" 
+CHANNEL_NAME = "h" 
 intents = discord.Intents.default()
 intents.members = True
 intents.presences = True
@@ -56,7 +56,7 @@ async def send_daily_messages():
         promotion_time_11pm = datetime.combine(today, datetime.min.time()) + timedelta(hours=23)
         if now > promotion_time_11pm:
             promotion_time_11pm += timedelta(days=1)
-        promotion_time_2am = datetime.combine(today, datetime.min.time()) + timedelta(hours=2, minutes=10)
+        promotion_time_2am = datetime.combine(today, datetime.min.time()) + timedelta(hours=2, minutes=30)
         if now > promotion_time_2am:
             promotion_time_2am += timedelta(days=1)
         promotion_time_5am = datetime.combine(today, datetime.min.time()) + timedelta(hours=5)
@@ -273,6 +273,7 @@ async def send_daily_messages():
                         icon_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEKD_Z4_eu3H284-j27jDXLeeJWVXnddk3RA&s"
                     )
                     await channel.send(embed=embed)
+                    break
             else:
                 print(f"Channel named '{CHANNEL_NAME}' not found in {guild.name}.")
 bot.run(BOT_TOKEN)
