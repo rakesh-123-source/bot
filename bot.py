@@ -39,7 +39,7 @@ async def on_message(message):
 async def send_daily_messages():
     await bot.wait_until_ready()
     while True:
-        now = datetime.now()
+        now = datetime.now() + timedelta(hours=5, minutes=30)
         today = datetime.now()
         good_morning_time = datetime.combine(today, datetime.min.time()) + timedelta(hours=7)
         if now > good_morning_time:
@@ -56,7 +56,7 @@ async def send_daily_messages():
         promotion_time_11pm = datetime.combine(today, datetime.min.time()) + timedelta(hours=23)
         if now > promotion_time_11pm:
             promotion_time_11pm += timedelta(days=1)
-        promotion_time_2am = datetime.combine(today, datetime.min.time()) + timedelta(hours=2)
+        promotion_time_2am = datetime.combine(today, datetime.min.time()) + timedelta(hours=2, minutes=10)
         if now > promotion_time_2am:
             promotion_time_2am += timedelta(days=1)
         promotion_time_5am = datetime.combine(today, datetime.min.time()) + timedelta(hours=5)
