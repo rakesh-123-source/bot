@@ -60,7 +60,7 @@ async def send_daily_messages():
         promotion_time_2am = datetime.combine(today, datetime.min.time()) + timedelta(hours=2)
         if now > promotion_time_2am:
             promotion_time_2am += timedelta(days=1)
-        promotion_time_5am = datetime.combine(today, datetime.min.time()) + timedelta(hours=5,minutes=16)
+        promotion_time_5am = datetime.combine(today, datetime.min.time()) + timedelta(hours=5,minutes=26)
         if now > promotion_time_5am:
             promotion_time_5am += timedelta(days=1)
         good_night_time = datetime.combine(today, datetime.min.time()) + timedelta(hours=23,minutes=30)
