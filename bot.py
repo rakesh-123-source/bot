@@ -5,13 +5,10 @@ from datetime import datetime, timedelta
 import os
 from flask import Flask
 from threading import Thread
-
 app = Flask('')
-
 @app.route('/')
 def home():
     return "Bot is running!"
-
 def run():
     app.run(host='0.0.0.0', port=8080)
 def keep_alive():
@@ -25,7 +22,6 @@ intents = discord.Intents.default()
 intents.members = True
 intents.presences = True
 intents.messages = True
-message.channel.send(f" DRAXITY is online now!")
 bot = commands.Bot(command_prefix="!", intents=intents)
 @bot.event
 async def on_ready():
@@ -43,7 +39,7 @@ async def on_message(message):
 async def send_daily_messages():
     await bot.wait_until_ready()
     while True:
-        now = datetime.now() + timedelta(hours=5,minutes=30)
+        now = datetime.now()
         today = datetime.now()
         good_morning_time = datetime.combine(today, datetime.min.time()) + timedelta(hours=7)
         if now > good_morning_time:
