@@ -17,7 +17,7 @@ def keep_alive():
 keep_alive()
 BOT_TOKEN = os.environ['discord_bot_token']  # 
 YOUR_USER_ID = os.environ['user_id'] 
-CHANNEL_NAME = "h" 
+CHANNEL_NAME = "〔💬〕main-chat" 
 intents = discord.Intents.default()
 intents.members = True
 intents.presences = True
