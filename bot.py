@@ -39,7 +39,7 @@ async def on_message(message):
 async def send_daily_messages():
     await bot.wait_until_ready()
     while True:
-        now = datetime.now() + timedelta(hours=5, minutes=30)
+        now = datetime.now()
         today = datetime.now()
         good_morning_time = datetime.combine(today, datetime.min.time()) + timedelta(hours=7)
         if now > good_morning_time:
@@ -56,10 +56,10 @@ async def send_daily_messages():
         promotion_time_11pm = datetime.combine(today, datetime.min.time()) + timedelta(hours=23)
         if now > promotion_time_11pm:
             promotion_time_11pm += timedelta(days=1)
-        promotion_time_2am = datetime.combine(today, datetime.min.time()) + timedelta(hours=3,minutes=4)
+        promotion_time_2am = datetime.combine(today, datetime.min.time()) + timedelta(hours=2)
         if now > promotion_time_2am:
             promotion_time_2am += timedelta(days=1)
-        promotion_time_5am = datetime.combine(today, datetime.min.time()) + timedelta(hours=6)
+        promotion_time_5am = datetime.combine(today, datetime.min.time()) + timedelta(hours=5)
         if now > promotion_time_5am:
             promotion_time_5am += timedelta(days=1)
         good_night_time = datetime.combine(today, datetime.min.time()) + timedelta(hours=23,minutes=30)
@@ -273,7 +273,7 @@ async def send_daily_messages():
                         icon_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEKD_Z4_eu3H284-j27jDXLeeJWVXnddk3RA&s"
                     )
                     await channel.send(embed=embed)
-                break
+                    break
             else:
                 print(f"Channel named '{CHANNEL_NAME}' not found in {guild.name}.")
 bot.run(BOT_TOKEN)
