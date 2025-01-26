@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import asyncio
 from datetime import datetime, timedelta
+import pytz
 import os
 from flask import Flask
 from threading import Thread
@@ -39,7 +40,9 @@ async def on_message(message):
 async def send_daily_messages():
     await bot.wait_until_ready()
     while True:
-        now = datetime + timedelta(hours=5,minutes=30)
+        timezone = pytz.utc
+        now_utc = datetime.now(timezone)
+        now = now_utc + timedelta(hours=5,minutes=30)
         today = datetime 
         good_morning_time = datetime.combine(today, datetime.min.time()) + timedelta(hours=7)
         if now > good_morning_time:
@@ -59,7 +62,7 @@ async def send_daily_messages():
         promotion_time_2am = datetime.combine(today, datetime.min.time()) + timedelta(hours=2)
         if now > promotion_time_2am:
             promotion_time_2am += timedelta(days=1)
-        promotion_time_5am = datetime.combine(today, datetime.min.time()) + timedelta(hours=4,minutes=38)
+        promotion_time_5am = datetime.combine(today, datetime.min.time()) + timedelta(hours=5)
         if now > promotion_time_5am:
             promotion_time_5am += timedelta(days=1)
         good_night_time = datetime.combine(today, datetime.min.time()) + timedelta(hours=23,minutes=30)
