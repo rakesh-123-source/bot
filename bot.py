@@ -273,7 +273,7 @@ async def send_daily_messages():
                         icon_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEKD_Z4_eu3H284-j27jDXLeeJWVXnddk3RA&s"
                     )
                     await channel.send(embed=embed)
-                    break
+                break
             else:
                 print(f"Channel named '{CHANNEL_NAME}' not found in {guild.name}.")
 bot.run(BOT_TOKEN)
